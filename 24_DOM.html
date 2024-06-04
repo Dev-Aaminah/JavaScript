@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+    <style>
+      .bg-black {
+        background: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <div class="parent">
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    // Select the parent element
+    const parent = document.querySelector(".parent");
+    console.log(parent); // Output: <div class="parent">...</div>
+    
+    // Log the HTMLCollection of children elements of the parent
+    console.log(parent.children); // Output: HTMLCollection of .day elements
+
+    // Access and log the fourth child element of the parent
+    console.log(parent.children[3]); // Output: <div class="day">Thursday</div>
+
+    // Access and log the innerHTML of the fourth child element
+    console.log(parent.children[3].innerHTML); // Output: "Thursday"
+
+    // Loop through all children of the parent element
+    for (let index = 0; index < parent.children.length; index++) {
+      const element = parent.children[index]; // Corrected the typo here
+      console.log(element); // Output: each .day element in sequence
+    }
+
+    // Change the color of the second child element to orange
+    parent.children[1].style.color = "orange"; // The second child (Tuesday) text becomes orange
+
+    // Log the first child element of the parent
+    console.log(parent.firstElementChild); // Output: <div class="day">Monday</div>
+
+    // Log the last child element of the parent
+    console.log(parent.lastElementChild); // Output: <div class="day">Thursday</div>
+
+    // Select the first element with the class 'day'
+    const dayOne = document.querySelector('.day');
+    console.log(dayOne); // Output: <div class="day">Monday</div>
+
+    // Log the parent element of the first .day element
+    console.log(dayOne.parentElement); // Output: <div class="parent">...</div>
+
+    // Log the next sibling element of the first .day element
+    console.log(dayOne.nextElementSibling); // Output: <div class="day">Tuesday</div>
+  </script>
+</html>
